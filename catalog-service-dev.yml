@@ -2,18 +2,23 @@ server:
   port: 8084
 
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;
-    username: sa
-    password: sa
-  sql:
-    init:
-      data-locations: classpath:catalog.sql
-  jpa:
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create-drop
+  data:
+    mongodb:
+      uri: mongodb://db-mongo:27017/tp_final_catalog
+  rabbitmq:
+    host: rabbit-mq
+    password: guest
+    port: 5672
+    username: guest
+  zipkin:
+    base-url: http://zipkin:9411/
+    enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+      fetchRegistry: true
+      registerWithEureka: true
 
 resilience4j:
   circuitbreaker:
@@ -37,4 +42,4 @@ info:
   app:
     name: ${spring.application.name}
     version: 1.0.0
-    description: Catalog Microservice
+    description: Catalog-service
