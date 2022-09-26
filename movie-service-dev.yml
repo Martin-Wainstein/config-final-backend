@@ -10,7 +10,18 @@ spring:
     username: user
     password: pass
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  rabbitmq:
+      username: guest
+      password: guest
+      host: rabbit-mq
+      port: 5672
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+      fetchRegistry: true
+      registerWithEureka: true
 info:
   app:
     name: ${spring.application.name}
