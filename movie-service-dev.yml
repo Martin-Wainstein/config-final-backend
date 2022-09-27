@@ -2,28 +2,17 @@ server:
   port: 8082
 
 spring:
+  datasource:
+    driver-class-name: jdbc:mysql://mysql:3306/movies
+    url: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
-  datasource:
-    url: jdbc:mysql://mysql:3306/tp_final
-    username: user
-    password: pass
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  rabbitmq:
-      username: guest
-      password: guest
-      host: rabbit-mq
-      port: 5672
-    
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka
-      fetchRegistry: true
-      registerWithEureka: true
+
 info:
   app:
     name: ${spring.application.name}
     version: 1.0.0
-    description: Movie-service
+    description: Movie Service
